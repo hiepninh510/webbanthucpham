@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://i.pinimg.com/originals/d9/56/da/d956daff55e6c830e87ac06a6a865db6.png); background-size: cover;">
+	<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="text-center" style="color: #ee4d2d; opacity: 0.75;">REGISTER</h2>
+					<h3 style="display: none;"><%= isExisted %></h3>
+				</div>
+				<form action="/register" method="post">
+					<div class="panel-body" style="color: #ee4d2d;" >
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="usr">Name:</label>
+						  <input required="true" type="text" class="form-control" id="usr" name="userName" style="opacity: 0.25;">
+						</div>
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="email">Email:</label>
+						  <input required="true" type="email" class="form-control" id="email" name="email" style="opacity: 0.25;">
+						</div>
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="birthday">Birthday:</label>
+						  <input style="opacity: 0.25;" type="date" class="form-control" id="birthday" name="birthday">
+						</div>
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="pwd">Password:</label>
+						  <input style="opacity: 0.25;" required="true" type="password" class="form-control" id="pwd" name="pass">
+						</div>
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="confirmation_pwd">Phone:</label>
+						  <input style="opacity: 0.25;" required="true" type="text" class="form-control" id="confirmation_pwd" name="phone">
+						</div>
+						<div class="form-group">
+						  <label style="opacity: 0.75;" for="address">Address:</label>
+						  <input style="opacity: 0.25;" type="text" class="form-control" id="address" name="address">
+						</div>
+						<button type="submit" class="btn btn-success" style="min-width: 25%;margin-left: 75%; opacity: 0.75;">Register</button>
+					</div>
+				</form>
+			</div>
+	</div>
+
+	<script>	
+		document.addEventListener("DOMContentLoaded",function(){
+			var elementH3 = document.querySelector('h3');
+			setTimeout(function(){
+				if(elementH3.textContent ===''){
+					return true;
+				} else{
+					alert("Email đã tồn tại!!!");
+					return false;
+				}
+			},1000);
+		})
+	</script>
+</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

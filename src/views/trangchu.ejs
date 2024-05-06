@@ -1,0 +1,176 @@
+<div class="container">
+    <div class="grid">  
+        <div class="grid__row" style="margin-bottom: -20px;"> 
+            <div id="carouselExampleIndicators" class="carousel slide" style="min-width: 100%;" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_85,s_1058x135/https://cdn.tgdd.vn/bachhoaxanh/banners/5599/milo-12042024211237.jpg" class="d-block w-100" alt="banner">
+              </div>
+              <div class="carousel-item">
+                <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_85,s_1058x135/https://cdn.tgdd.vn/bachhoaxanh/banners/5599/san-sale-gia-soc-cung-bhx-12032024133716.jpg" class="d-block w-100" alt="banner">
+              </div>
+              <div class="carousel-item">
+                <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_85,s_1058x135/https://cdn.tgdd.vn/bachhoaxanh/banners/5599/milo-12042024211237.jpg" class="d-block w-100" alt="banner">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev" style="max-width: 4%; border: none;">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next" style="max-width: 4%; border: none;">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid__row app_content">
+            <div class="grid__colum-2">
+                 <nav class="category">                
+                     <h3 class="category__heading">
+                         <i class="category__heading-icon fa-solid fa-list"></i>
+                            Danh mục
+                    </h3>
+ 
+                 <ul class="category-list">
+                     <li class="category-item category-item--active">
+                         <a href="#" class="category-item__link">Tất cả</a>
+                     </li>
+                     <li class="category-item">
+                        <a href="#" class="category-item__link">Thịt</a>
+                    </li>
+                     <li class="category-item">
+                         <a href="#" class="category-item__link">Rau Trái Cây Củ</a>
+                     </li>
+                     <li class="category-item">
+                         <a href="#" class="category-item__link">Gia Vị</a>
+                     </li>
+                     <li class="category-item">
+                        <a href="#" class="category-item__link">Nước Ngọt Bia</a>
+                    </li>
+                 </ul>
+             </nav>
+         </div>
+
+         <div class="grid__colum-10">
+             <div class="home_filter">
+                 <span class="home-filter__lable">Sắp xếp theo</span>
+                 <button class="home-filter__btn btn btn--primary">Bán chạy</button>
+
+                 <div class="select-input">
+                     <span class="select-input__lable">Giá</span>
+                     <i class="select-input__icon fa-solid fa-chevron-down"></i>
+                     <ul class="select-input__list">
+                         <li class="select-input__item">
+                             <a href="/min-to-max" class="select-input__link">Giá: Thấp đến cao</a>
+                             
+                         </li>
+                         
+                         <li class="select-input__item">
+                             
+                             <a href="/max-to-min" class="select-input__link">Giá: Cao đến thấp</a>
+                         </li>
+                     </ul>
+                 </div>
+
+                 <div class="home--filter__page">
+                     <span class="home--filter__page-num">
+                         <span class="home--filter__page-current">1</span>/<%= numPage%>
+                     </span>
+
+                     <div class="home--filter__page-control">
+                         <a href="" class="home--filter__page-btn home--filter__page-btn--disabled">
+                             <i class="home--filter__page-icon fa-solid fa-chevron-left"></i>
+                         </a>
+                         <a href="" class="home--filter__page-btn">
+                             <i class="home--filter__page-icon fa-solid fa-chevron-right"></i>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+             <div class="home-product">                  
+                     <div class="grid__row "> 
+                    <% products.slice( skipProducts,skipProducts + 10).forEach(product => { %>
+                        <div class="grid__colum-2-4">
+                                <a href="/" class="home-product-item"> 
+                                    <div class="home-product-item__img" style="background-image: url('<%= product.img %>');"></div>
+                                    <h4 class="home-product-item__name"><%= product.name %></h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old"><%= product.priceOld %>đ</span>
+                                        <span class="home-product-item__proce-new"><%= product.priceNew %>đ</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+                                        <span class="home-product-item__like home-product-item__liked">
+                                            <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+                                            <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                        </span>
+                                        <div class="home-product-item__rating">
+                                            <i class="home-product-item__rating--gold fa-solid fa-star"></i>
+                                            <i class="home-product-item__rating--gold fa-solid fa-star"></i>
+                                            <i class="home-product-item__rating--gold fa-solid fa-star"></i>
+                                            <i class="home-product-item__rating--gold fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="home-product-item__sold"><%= product.sold %> đã bán </span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand"><%= product.brand %></span>
+                                        <span class="home-product-item__origin-name"><%= product.producer %></span>
+                                    </div>
+   
+                                    <div class="home-product-item__favourite">
+                                        <i class="fa-solid fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-lable">GIẢM</span>
+                                    </div>
+                                        <button class="cart_btn btn btn--primary" value="<%= product.id %>" name="addCart">
+                                            <i class="cart_icon_add fa-solid fa-cart-plus"></i>
+                                            <span class="cart_btn-lable">Thêm vào giỏ hàng</span>
+                                        </button>
+                                </a> 
+                        </div>
+
+                        <% }); %>
+        
+                     </div>
+             </div>
+
+             <form action="/trangchu" method="get">
+                 <ul class="pagination home-product__pagination">
+                     <li class="pagination-item">
+                         <button type="submit" name="page" value="<%= page - 1 %>" class="pagination-item__btn" id="prevButton_left" style="box-shadow: 0 0px 2px 0 var(--text-color);">
+                             <i class="pagination-item__icon fas fa-angle-left"></i>
+                         </button>                            
+                     </li>
+                     <% for(var i = 1; i <= numPage; i++ ){ %>
+                        <% if(i == page){ %>
+                            <li class="pagination-item pagination-item__active">
+                                <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);"><%= i %></button>                        
+                            </li>
+                        <% } else { %>
+                        <li class="pagination-item">
+                            <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);"><%= i %></button>                        
+                        </li>
+                        <% } %>
+
+                     <% } %>
+                     <li class="pagination-item">
+                         <button type="submit" name="page" value="<%= page + 1 %>" class="pagination-item__btn" id="prevButton_right" style="box-shadow: 0 0px 2px 0 var(--text-color);">
+                             <i class="pagination-item__icon fas fa-angle-right"></i>
+                         </button>                            
+                     </li>
+                 </ul>
+             </form>
+            </div>
+        </div>
+ </div>        
+
+ </div>
