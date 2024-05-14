@@ -14,7 +14,7 @@ class AdminController{
         })
     }
 
-    //Chỉnh sửa sản phẩm GET
+    //Chỉnh sửa sản phẩm PUT
     change_Product(req,res){
         Product.findOne({'_id':req.query.id})
         .then(product=>{
@@ -22,8 +22,8 @@ class AdminController{
         })
     }
 
-    //Chỉnh sửa sản phẩm POST
-    chang_Product_Post(req, res) {
+    //Chỉnh sửa sản phẩm PUT
+    chang_Product_Put(req, res) {
         Product.findOne({ '_id': req.body.IDproduct })
             .then(product => {
                 if (product.name != req.body.nameproduct) {
