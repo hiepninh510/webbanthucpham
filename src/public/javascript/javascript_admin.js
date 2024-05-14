@@ -15,7 +15,7 @@ delet_product.forEach((delet) => {
 let btn_delete = document.getElementById('btn_delete');
 btn_delete.addEventListener('click',()=>{
     var xhr_delete = new XMLHttpRequest();
-    xhr_delete.open('POST','/admin/deleteproduct',true);
+    xhr_delete.open('DELETE','/admin/deleteproduct',true);
     xhr_delete.setRequestHeader('Content-Type', 'application/json'); 
     xhr_delete.onreadystatechange = function() {
         if (xhr_delete.readyState == 4 && xhr_delete.status == 200) {

@@ -10,7 +10,7 @@ router.get('/bill',adminController.bill);
 router.get('/themsanpham',adminController.themSanPham);
 router.post('/delete-account',adminController.post_delete_acc);
 router.get('/giohang',adminController.cart_Client);
-router.post('/deleteproduct',adminController.delete_Product);
+router.delete('/deleteproduct',adminController.delete_Product);
 router.post('/changeproduct',adminController.chang_Product_Put);
 router.post('/themsanpham',adminController.post_themSanPham);
 router.get('/',adminController.index);
