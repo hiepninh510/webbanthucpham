@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>GIỎ HÀNG</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="../../src/public/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+      <link rel="stylesheet" href="../../src/public/css/base.css">
+      <link rel="stylesheet" href="../../src/public/css/main.css">
+  </head>
+  <body>       
+    <div class="container" style="margin-top: 0; font-size: 15px;">
+      <div class="grid__row" style="font-size: 24px;">
+        <ul class="nav nav-pills nav-fill" style="margin:4px 0px 8px 4px; flex:4">
+          <li class="nav-item" style="display: flex;">
+            <a class="nav-link" style="color: var(--primary-color);" href="/admin">
+                <i class="fa-solid fa-shop"></i>
+                Sản Phẩm
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: var(--primary-color);" href="/admin/giohang">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Giỏ Hàng
+            </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: var(--primary-color);" href="/admin/bill">
+                <i class="fa-solid fa-scroll"></i>
+                Hóa Đơn
+            </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="color: var(--primary-color);" href="/admin/account">
+                <i class="fa-regular fa-circle-user"></i>
+                Tài Khoản
+            </a>
+            </li>
+        </ul>
+      </div>
+        <table class="table">
+          <thead class="thead-light"> 
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mật Khẩu</th>
+                <th scope="col">Số Điện Thoại</th>
+                <th scope="col">Địa Chỉ</th>
+                <th scope="col">Thời gian truy cập</th>
+                <th scope="col">Xóa</th>
+            </tr>
+          </thead>
+          <% for(let i = 0 ; i< len_login; i++){ %>
+            <tbody>
+              <tr>
+                <td class="edit_cart "><%= i+1 %></td>
+                <td class="edit_cart "><%= login[i].userName %></td>
+                <td class="edit_cart"><%= login[i].email %></td>
+                <td class="edit_cart number_product">
+                  <input type="password" id="passField" value="<%= login[i].pass %>" style="border: none; background-color: #f5f5f5;" readonly>
+                </td>
+                <td class="edit_cart "><%= login[i].phone %></td>
+                <td class="edit_cart "><%= login[i].address %></td>
+                <td class="edit_cart "><%= ar_acc_access[i] %></td>
+                <td><i class="edit_cart delete_product-in-cart fa-solid fa-trash delete_cart"  data-toggle="modal" data-target="#exampleModal" data-value="<%= login[i].email %>"></i></td>
+              </tr>
+            </tbody> 
+          <%}%>
+        </table>
+    </div>
+
+    <footer class="footer">
+      <%- include('footer')%>
+    </footer>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="font-size: 20px; color: var(--primary-color);">Thông báo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="font-size: 16px;">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="btn_delete" data-dismiss="modal">Delete</button>
+              <button type="button" class="btn btn-primary" id="btn_close">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script defer src="../../src/public/javascript/javascript_acc.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

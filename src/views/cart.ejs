@@ -1,0 +1,64 @@
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 20px; color: var(--primary-color);">Thông báo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span >&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="font-size: 16px;">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" style="background-color: var(--primary-color);" class="btn " data-dismiss="modal" id="close_modal">Close</button>
+          <button type="button" class="btn " id="delete_modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-hover table_cart">
+    <tbody>
+      <% for(let i=0 ;i < carts.length;i++){ %>
+        <% if(!carts[i].isDelete && !carts[i].bought){ %>
+          <tr data-value="<%= carts[i].isDelete %>">
+            <th scope="row">
+              <input type="checkbox" value="<%= carts[i].id %>" class="edit_cart delete_product-in-cart ">
+            </th>
+            <th scope="row" class="edit_cart "><%= i+1 %></th>
+            <td>
+              <img src="<%= carts[i].img %>" class="img-thumbnail img_product" alt="ảnh">
+            </td>
+            <td>
+              <span class="edit_cart "><%= carts[i].name %></span>
+            </td>
+            <td>
+              <span class="edit_cart "><%= carts[i].price %></span>
+              <span>đ</span>
+            </td>
+            <td>
+              <i class="edit_cart change_number fa-solid fa-minus"data-value="<%= carts[i].id %>"></i>
+              <span class="edit_cart number_product "><%= carts[i].number %></span>
+              <i class="edit_cart change_number fa-solid fa-plus" data-value="<%= carts[i].id %>"></i>
+            </td>
+            <td>
+              <i class="edit_cart delete_product-in-cart fa-solid fa-trash" data-value="<%= carts[i].id %>" data-name="<%= carts[i].name %>" data-toggle="modal" data-target="#staticBackdrop"></i>
+            </td>
+          </tr>
+      <% } } %>
+    </tbody>
+  </table>
+  <div class="grid__row">
+    <input type="checkbox" class="change_number" id="checkAll">
+    <span class="edit_cart">Chọn tất cả</span>
+  </div>
+  <div class="grid__row" style="margin-top: 250px; margin-bottom: 12px;">
+    <button type="button" class="btn btn-lg btn-block">Thanh toán</button>
+  </div>
+
+</div>
+
+<script defer src="../../src/public/javascript/javascript_Cart.js"></script>
