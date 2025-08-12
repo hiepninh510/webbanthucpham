@@ -45,6 +45,7 @@ class PayController {
 
     async order_Product(req,res){
         const bought = await change_Buyght(req.body.arr_id_cart);
+        console.log(req.body.arr_id_cart);
         req.session.lenCart -=bought;
         if(bought){
             const newBill = await new Bill({

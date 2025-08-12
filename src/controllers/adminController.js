@@ -4,14 +4,17 @@ const Bill = require('../models/bills');
 const Login = require('../models/logins');
 const {convertToVietnameseDateTime} = require('../models/formatDate');
 const vietnamCurrency = require('../models/formatNumber');
+const { render } = require('ejs');
 
 class AdminController{
-    index(req,res){
-        Product.find({'isDelete':false})
-        .then(products=>{
-            const product_len = products.length
-            res.render('admin',{layout:false,products,product_len});
-        })
+    async index(req,res){
+        try {
+            const products = await Product.find({'isDelete':false});
+            const product_len = products.length;
+            res.render('admin',{layout:false,products,product_len})
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     //Chỉnh sửa sản phẩm GET

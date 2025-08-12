@@ -11,7 +11,7 @@ router.get('/themsanpham',adminController.themSanPham);
 router.post('/delete-account',adminController.post_delete_acc);
 router.get('/giohang',adminController.cart_Client);
 router.post('/deleteproduct',adminController.delete_Product);
-router.post('/changeproduct',adminController.chang_Product_Post);
+router.post('/changeproduct',adminController.change_Product_Post);
 router.post('/themsanpham',adminController.post_themSanPham);
 router.get('/',adminController.index);
 

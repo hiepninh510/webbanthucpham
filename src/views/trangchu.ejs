@@ -146,24 +146,34 @@
              <form action="/trangchu" method="get">
                  <ul class="pagination home-product__pagination">
                      <li class="pagination-item">
-                         <button type="submit" name="page" value="<%= page - 1 %>" class="pagination-item__btn" id="prevButton_left" style="box-shadow: 0 0px 2px 0 var(--text-color);">
-                             <i class="pagination-item__icon fas fa-angle-left"></i>
+                         <button type="submit" 
+                            name="page" 
+                            value="<%= page - 1 %>"
+                            <%= page === 1 ? "disabled" : "" %>
+                            class="pagination-item__btn" id="prevButton_left" style="box-shadow: 0 0px 2px 0 var(--text-color);cursor: <%= page === 1 ? 'not-allowed' : 'pointer' %>;">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
                          </button>                            
                      </li>
                      <% for(var i = 1; i <= numPage; i++ ){ %>
                         <% if(i == page){ %>
                             <li class="pagination-item pagination-item__active">
-                                <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);"><%= i %></button>                        
+                                <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);cursor: pointer;"><%= i %></button>                        
                             </li>
                         <% } else { %>
                         <li class="pagination-item">
-                            <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);"><%= i %></button>                        
+                            <button type="submit" name="page" value="<%= i %>" class="pagination-item__btn" style="box-shadow: 0 0px 2px 0 var(--text-color);cursor: pointer;"><%= i %></button>                        
                         </li>
                         <% } %>
 
                      <% } %>
                      <li class="pagination-item">
-                         <button type="submit" name="page" value="<%= page + 1 %>" class="pagination-item__btn" id="prevButton_right" style="box-shadow: 0 0px 2px 0 var(--text-color);">
+                         <button 
+                            type="submit" 
+                            name="page" value="<%= page + 1 %>" 
+                            class="pagination-item__btn" 
+                            id="prevButton_right" 
+                            <%= page === numPage ? "disabled" : "" %>
+                            style="box-shadow: 0 0px 2px 0 var(--text-color); cursor: <%= page === numPage ? 'not-allowed' : 'pointer' %>;">
                              <i class="pagination-item__icon fas fa-angle-right"></i>
                          </button>                            
                      </li>
